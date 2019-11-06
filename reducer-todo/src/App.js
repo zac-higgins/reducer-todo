@@ -1,22 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import './css/app.css';
+import { reducer, initialState } from './reducers/reducer';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TODO":
-      return {
-        todos: [...state.todos, { task: action.payload, completed: false }]
-      };
-    case "TOGGLE_TODO":
-      return {
-        todos: state.todos.map((item, index) => index === action.index ? { ...item, completed: !item.completed } : item)
-      };
-    default:
-      throw new Error("No action matched!");
-  }
-};
-
-const initialState = { todos: [] }
 
 const App = () => {
   const [{ todos }, dispatch] = useReducer(reducer, initialState);
@@ -33,10 +18,14 @@ const App = () => {
       >
         <input value={task} onChange={e => setTask(e.target.value)} />
       </form>
+      <button onClick={e => {
+        e.preventDefault();
+        dispatch({ type: "CLEAR_COMPLETED" });
+      }}>Clear Completed</button>
       {todos.map((item, index) => {
         return (
           <div
-            key={item.task}
+            key={item.id}
             onClick={() => dispatch({ type: "TOGGLE_TODO", index })}
             style={{
               textDecoration: item.completed ? "line-through" : ""

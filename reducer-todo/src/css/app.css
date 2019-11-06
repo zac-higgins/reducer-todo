@@ -1,0 +1,109 @@
+body {
+  background-color: #2F4858;
+  color: #E8F3F1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30vh;
+}
+.App {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+}
+.App .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.App .header .formModule {
+  width: 400px;
+}
+.App .header .formModule .form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.App .header .formModule .form input {
+  width: 100%;
+  height: 25px;
+  background-color: #E8F3F1;
+  border: #E8F3F1;
+  font-size: 16px;
+  padding: 6px 14px;
+}
+.App .header .formModule .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.App .button {
+  background-color: #34BDB5;
+  border: #34BDB5;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  width: 62.5%;
+}
+.App .clearButton {
+  background-color: #C68226;
+  border: #C68226;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  width: 38%;
+}
+.App .todoList {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 600px;
+  margin: 15px auto;
+}
+.App .todoList .task {
+  background-color: #677987;
+  width: 45%;
+  text-align: left;
+  margin: 15px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+.App .todoList .taskCompleted {
+  background-color: #C68226;
+  width: 45%;
+  text-align: left;
+  margin: 15px 0;
+  padding-left: 8px;
+  cursor: pointer;
+  text-decoration: line-through;
+}
+@media (max-width: 800px) {
+  body {
+    padding-top: 5px;
+  }
+  .App {
+    justify-content: start;
+    align-items: center;
+  }
+  .App .todoList {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    max-width: 100vw;
+  }
+  .App .todoList .task {
+    width: 85%;
+  }
+  .App .todoList .taskCompleted {
+    width: 85%;
+  }
+}
